@@ -1,0 +1,4 @@
+---
+- name: Fedora 42 tests
+  ansible.builtin.debug:
+    msg: Fedora 42 tests
