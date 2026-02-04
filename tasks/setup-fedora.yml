@@ -1,4 +1,28 @@
 ---
-- name: Fedora 40 tasks
-  ansible.builtin.debug:
-    msg: Fedora 40 tasks
+
+- name: Ensure dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ veracrypt_dependencies }}"
+    state: present
+
+- name: Install Veracrypt public key
+  ansible.builtin.rpm_key:
+    key: "{{ veracrypt_public_key_url }}"
+    state: present
+
+- name: Build Veracrypt download URL
+  ansible.builtin.set_fact:
+    veracrypt_package_url: >-
+      {{ [
+        veracrypt_base_download_url,
+        'veracrypt/trunk',
+        veracrypt_version,
+        '+download',
+        'veracrypt-console-' ~ veracrypt_version ~
+        '-Fedora-40-' ~ veracrypt_arch ~ '.rpm'
+      ] | map('trim', '/') | join('/') }}
+
+- name: Install veracrypt package
+  ansible.builtin.dnf:
+    name: "{{ veracrypt_package_url }}"
+    state: present
