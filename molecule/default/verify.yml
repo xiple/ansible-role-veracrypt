@@ -4,6 +4,15 @@
   gather_facts: true
 
   tasks:
+    - name: Gather the package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Fail if veracrypt-console is not installed
+      ansible.builtin.fail:
+        msg: "veracrypt-console package is not installed"
+      when: "'veracrypt-console' not in ansible_facts.packages"
+
     - name: Include Debian verify file
       ansible.builtin.include_tasks: tasks/verify-debian.yml
       when:
