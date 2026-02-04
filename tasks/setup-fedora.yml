@@ -1,0 +1,4 @@
+---
+- name: Fedora 40 tasks
+  ansible.builtin.debug:
+    msg: Fedora 40 tasks
