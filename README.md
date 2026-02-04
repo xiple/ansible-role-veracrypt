@@ -1,7 +1,7 @@
 Ansible role: Template
 =========
 
-[![CI](https://github.com/xiple/ansible-role-template/actions/workflows/ci.yml/badge.svg)](https://github.com/xiple/ansible-role-template/actions/workflows/ci.yml)
+[![CI](https://github.com/xiple/ansible-role-veracrypt/actions/workflows/ci.yml/badge.svg)](https://github.com/xiple/ansible-role-veracrypt/actions/workflows/ci.yml)
 
 An ansible template role. Use it to scaffold ansible roles.
 
@@ -20,7 +20,6 @@ Supported distributions
 
 This role has been been developed and tested on the following distributions :
 
-- Debian : 13
 - Fedora : 43, 42
 
 Example Playbook
