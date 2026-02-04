@@ -1,12 +1,23 @@
 ---
 - name: Verify
   hosts: molecule
+  vars_files: ../../vars/main.yml
   gather_facts: true
 
   tasks:
     - name: Gather the package facts
       ansible.builtin.package_facts:
         manager: auto
+
+    - name: Fail if dependencies are missing
+      ansible.builtin.fail:
+        msg: >-
+          Missing dependencies:
+          {{ veracrypt_dependencies
+             | difference(ansible_facts.packages.keys())
+             | join(', ')
+          }}
+      when: veracrypt_dependencies | difference(ansible_facts.packages.keys()) | length > 0
 
     - name: Fail if veracrypt-console is not installed
       ansible.builtin.fail:

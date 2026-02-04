@@ -1,1 +1,4 @@
 ---
+
+veracrypt_dependencies:
+  - fuse-libs
