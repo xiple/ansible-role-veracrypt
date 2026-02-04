@@ -1,9 +1,9 @@
-Ansible role: Template
+Ansible role: Veracrypt
 =========
 
 [![CI](https://github.com/xiple/ansible-role-veracrypt/actions/workflows/ci.yml/badge.svg)](https://github.com/xiple/ansible-role-veracrypt/actions/workflows/ci.yml)
 
-An ansible template role. Use it to scaffold ansible roles.
+An ansible role to install Veracrypt.
 
 Requirements
 ----------------
@@ -13,14 +13,20 @@ None.
 Role Variables
 ----------------
 
-None.
+```yaml
+veracrypt_version: 1.26.24
+```
+
+The veracrypt version to be installed.
+
+See `defaults/main.yml` for all configurable values.
 
 Supported distributions
 ----------------
 
 This role has been been developed and tested on the following distributions :
 
-- Fedora : 43, 42
+- Fedora : 43, 42 (use Veracrypt Fedora 40 RPM file)
 
 Example Playbook
 ----------------
@@ -28,7 +34,7 @@ Example Playbook
 ```yaml
 - hosts: all
   roles:
-    - xiple.template
+    - xiple.veracrypt
 ```
 
 License
