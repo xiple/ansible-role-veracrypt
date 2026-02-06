@@ -3,4 +3,4 @@
   hosts: molecule
   gather_facts: true
   roles:
-    - role: xiple.template
+    - role: xiple.veracrypt
