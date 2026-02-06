@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MIT-0
 galaxy_info:
   author: xiple
-  description: Template role
+  description: Veracrypt installation role
 
   # below 2 lines are required for molecule
-  role_name: template
+  role_name: veracrypt
   namespace: xiple
 
   # If the issue tracker for your role is not on github, uncomment the
