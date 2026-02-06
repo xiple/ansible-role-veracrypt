@@ -9,7 +9,7 @@
         veracrypt_version,
         '+download',
         'veracrypt-console-' ~ veracrypt_version ~
-        '-Debian-' ~ ansible_facts.distribution_major_version ~ '-' ~ veracrypt_arch ~ '.deb'
+        '-Debian-' ~ ansible_facts.distribution_major_version ~ '-amd64.deb'
       ] | map('trim', '/') | join('/') }}
 
 - name: Display built Veracrypt download URL

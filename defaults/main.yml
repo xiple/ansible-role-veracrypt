@@ -6,5 +6,3 @@ veracrypt_public_key_url: https://amcrypto.jp/VeraCrypt/VeraCrypt_PGP_public_key
 veracrypt_base_download_url: https://launchpad.net
 
 veracrypt_version: 1.26.24
-
-veracrypt_arch: x86_64
