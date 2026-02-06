@@ -15,3 +15,8 @@
 - name: Display built Veracrypt download URL
   ansible.builtin.debug:
     var: veracrypt_package_url
+
+- name: Install veracrypt package
+  ansible.builtin.apt:
+    deb: "{{ veracrypt_package_url }}"
+    state: present
