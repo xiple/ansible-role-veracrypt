@@ -22,6 +22,10 @@
         '-Fedora-40-' ~ veracrypt_arch ~ '.rpm'
       ] | map('trim', '/') | join('/') }}
 
+- name: Display built Veracrypt download URL
+  ansible.builtin.debug:
+    var: veracrypt_package_url
+
 - name: Install veracrypt package
   ansible.builtin.dnf:
     name: "{{ veracrypt_package_url }}"
