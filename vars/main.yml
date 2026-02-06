@@ -1,4 +1,4 @@
 ---
 
-veracrypt_dependencies:
+veracrypt_fedora_dependencies:
   - fuse-libs

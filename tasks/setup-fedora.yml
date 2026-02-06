@@ -2,7 +2,7 @@
 
 - name: Ensure dependencies are installed
   ansible.builtin.dnf:
-    name: "{{ veracrypt_dependencies }}"
+    name: "{{ veracrypt_fedora_dependencies }}"
     state: present
 
 - name: Install Veracrypt public key
