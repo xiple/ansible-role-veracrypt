@@ -1,4 +1,13 @@
 ---
-- name: Debian 13 tasks
-  ansible.builtin.debug:
-    msg: Debian 13 tasks
+
+- name: Build Veracrypt download URL
+  ansible.builtin.set_fact:
+    veracrypt_package_url: >-
+      {{ [
+        veracrypt_base_download_url,
+        'veracrypt/trunk',
+        veracrypt_version,
+        '+download',
+        'veracrypt-console-' ~ veracrypt_version ~
+        '-Debian-' ~ ansible_facts.distribution_major_version ~ '-' ~ veracrypt_arch ~ '.deb'
+      ] | map('trim', '/') | join('/') }}
