@@ -27,6 +27,7 @@ Supported distributions
 This role has been been developed and tested on the following distributions :
 
 - Fedora : 43, 42 (use Veracrypt Fedora 40 RPM file)
+- Debian : 13
 
 Example Playbook
 ----------------
