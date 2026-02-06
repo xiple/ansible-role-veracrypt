@@ -9,11 +9,6 @@
       ansible.builtin.package_facts:
         manager: auto
 
-    - name: Include Debian verify file
-      ansible.builtin.include_tasks: tasks/verify-debian.yml
-      when:
-        - ansible_facts.distribution == 'Debian'
-
     - name: Include Fedora verify file
       ansible.builtin.include_tasks: tasks/verify-fedora.yml
       when:
