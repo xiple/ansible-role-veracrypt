@@ -1,5 +1,12 @@
 ---
 
+- name: Select proper OS version for Veracrypt package
+  ansible.builtin.set_fact:
+    veracrypt_os_package_version: >-
+      {{ ansible_distribution_version
+        if ansible_distribution == 'Ubuntu'
+        else ansible_distribution_major_version }}
+
 - name: Build Veracrypt download URL
   ansible.builtin.set_fact:
     veracrypt_package_url: >-
@@ -8,8 +15,11 @@
         'veracrypt/trunk',
         veracrypt_version,
         '+download',
-        'veracrypt-console-' ~ veracrypt_version ~
-        '-Debian-' ~ ansible_facts.distribution_major_version ~ '-amd64.deb'
+        'veracrypt-console-' ~
+        veracrypt_version ~
+        '-' ~ ansible_facts.distribution ~ '-'
+        ~ veracrypt_os_package_version
+        ~ '-amd64.deb'
       ] | map('trim', '/') | join('/') }}
 
 - name: Display built Veracrypt download URL
