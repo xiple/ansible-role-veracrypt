@@ -9,10 +9,10 @@
       ansible.builtin.package_facts:
         manager: auto
 
-    - name: Include Fedora verify file
-      ansible.builtin.include_tasks: tasks/verify-fedora.yml
+    - name: Include RHEL verify file
+      ansible.builtin.include_tasks: tasks/verify-RedHat.yml
       when:
-        - ansible_facts.distribution == 'Fedora'
+        - ansible_facts.os_family == 'RedHat'
 
     - name: Fail if veracrypt-console is not installed
       ansible.builtin.fail:
