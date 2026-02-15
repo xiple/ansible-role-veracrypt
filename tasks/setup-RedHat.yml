@@ -1,0 +1,32 @@
+---
+
+- name: Ensure dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ veracrypt_fedora_dependencies }}"
+    state: present
+
+- name: Install Veracrypt public key
+  ansible.builtin.rpm_key:
+    key: "{{ veracrypt_public_key_url }}"
+    state: present
+
+- name: Build Veracrypt download URL
+  ansible.builtin.set_fact:
+    veracrypt_package_url: >-
+      {{ [
+        veracrypt_base_download_url,
+        'veracrypt/trunk',
+        veracrypt_version,
+        '+download',
+        'veracrypt-console-' ~ veracrypt_version ~
+        '-Fedora-40-x86_64.rpm'
+      ] | map('trim', '/') | join('/') }}
+
+- name: Display built Veracrypt download URL
+  ansible.builtin.debug:
+    var: veracrypt_package_url
+
+- name: Install veracrypt package
+  ansible.builtin.dnf:
+    name: "{{ veracrypt_package_url }}"
+    state: present
