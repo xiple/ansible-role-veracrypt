@@ -30,3 +30,4 @@
   ansible.builtin.apt:
     deb: "{{ veracrypt_package_url }}"
     state: present
+    update_cache: true
