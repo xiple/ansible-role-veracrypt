@@ -12,9 +12,8 @@
     veracrypt_package_url: >-
       {{ [
         veracrypt_base_download_url,
-        'veracrypt/trunk',
-        veracrypt_version,
-        '+download',
+        'veracrypt/VeraCrypt/releases/download',
+        'VeraCrypt_' ~ veracrypt_version,
         'veracrypt-console-' ~
         veracrypt_version ~
         '-' ~ ansible_facts.distribution ~ '-'

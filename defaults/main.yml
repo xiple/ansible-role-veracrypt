@@ -3,6 +3,6 @@
 # see https://veracrypt.jp/en/Digital%20Signatures.html
 veracrypt_public_key_url: https://amcrypto.jp/VeraCrypt/VeraCrypt_PGP_public_key.asc
 
-veracrypt_base_download_url: https://launchpad.net
+veracrypt_base_download_url: https://github.com
 
 veracrypt_version: 1.26.24
