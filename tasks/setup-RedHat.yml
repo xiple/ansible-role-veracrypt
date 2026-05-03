@@ -15,9 +15,8 @@
     veracrypt_package_url: >-
       {{ [
         veracrypt_base_download_url,
-        'veracrypt/trunk',
-        veracrypt_version,
-        '+download',
+        'veracrypt/VeraCrypt/releases/download',
+        'VeraCrypt_' ~ veracrypt_version,
         'veracrypt-console-' ~ veracrypt_version ~
         '-Fedora-40-x86_64.rpm'
       ] | map('trim', '/') | join('/') }}
