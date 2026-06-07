@@ -5,9 +5,15 @@
     name: "{{ veracrypt_fedora_dependencies }}"
     state: present
 
+- name: Copy Veracrypt public key to managed node
+  ansible.builtin.copy:
+    src: VeraCrypt_PGP_public_key.asc
+    dest: /tmp/VeraCrypt_PGP_public_key.asc
+    mode: "0644"
+
 - name: Install Veracrypt public key
   ansible.builtin.rpm_key:
-    key: "{{ veracrypt_public_key_url }}"
+    key: /tmp/VeraCrypt_PGP_public_key.asc
     state: present
 
 - name: Build Veracrypt download URL
