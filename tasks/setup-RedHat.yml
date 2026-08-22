@@ -24,7 +24,7 @@
         'veracrypt/VeraCrypt/releases/download',
         'VeraCrypt_' ~ veracrypt_version,
         'veracrypt-console-' ~ veracrypt_version ~
-        '-Fedora-40-x86_64.rpm'
+        '-Fedora-' ~ ansible_distribution_major_version ~ '-x86_64.rpm'
       ] | map('trim', '/') | join('/') }}
 
 - name: Display built Veracrypt download URL
