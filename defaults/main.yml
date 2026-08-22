@@ -3,4 +3,4 @@
 # see https://veracrypt.jp/en/Digital%20Signatures.html
 veracrypt_base_download_url: https://github.com
 
-veracrypt_version: 1.26.24
+veracrypt_version: 1.26.29
