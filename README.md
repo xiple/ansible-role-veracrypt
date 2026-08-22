@@ -28,7 +28,7 @@ This role has been been developed and tested on the following distributions :
 
 - Ubuntu : 24.04
 - Debian : 13
-- Fedora : 43, 42 (use Veracrypt Fedora 40 RPM file)
+- Fedora : 43
 
 Example Playbook
 ----------------
