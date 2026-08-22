@@ -14,7 +14,7 @@ Role Variables
 ----------------
 
 ```yaml
-veracrypt_version: 1.26.24
+veracrypt_version: 1.26.29
 ```
 
 The veracrypt version to be installed.
@@ -28,7 +28,7 @@ This role has been been developed and tested on the following distributions :
 
 - Ubuntu : 24.04
 - Debian : 13
-- Fedora : 43
+- Fedora : 44, 43
 
 Example Playbook
 ----------------
