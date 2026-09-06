@@ -34,7 +34,7 @@
 - name: Build Veracrypt package path
   ansible.builtin.set_fact:
     veracrypt_package_dst: >-
-      {{ [ 
+      {{ [
         '/tmp',
         'veracrypt-console-' ~ veracrypt_version ~
         '-Fedora-' ~ ansible_distribution_major_version ~ '-x86_64.rpm'
@@ -48,6 +48,7 @@
   ansible.builtin.get_url:
     url: "{{ veracrypt_package_url }}"
     dest: "{{ veracrypt_package_dst }}"
+    mode: "600"
 
 - name: Install veracrypt package
   ansible.builtin.dnf:
